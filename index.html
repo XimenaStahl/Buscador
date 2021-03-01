@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Historias</h1>
+        
+        <hr>
+        <div v-for="item in autores">{{item}}
+            <ul>
+                <li v-for="valor in filtrarPorAutor(item)">
+                   {{ valor.texto }}
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <h3>¿Qué es lo que estás buscando?</h3>
+        <input type="text" v-model="buscar">
+        <h4>Seleccionados:</h4>
+        <ul>
+            <li v-for="item in filtrarPorTexto">{{item.texto}}</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
